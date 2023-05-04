@@ -23,6 +23,6 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
     box-shadow: 0px 0px 2px ${props=> props.theme.secondary};
 
     
-    background: ${props => props.theme.primary};
+    background: ${props => props.theme.white};
     color: ${props => props.theme.white}
 `

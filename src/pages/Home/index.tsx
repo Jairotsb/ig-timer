@@ -15,9 +15,16 @@ export function Home() {
       <form>
         <FormContainer>
           <label htmlFor="">Vou trabalhar em</label>
-          <TaskInput placeholder="Dê um nome para seu projeto." id="task" />
+          <TaskInput
+            placeholder="Dê um nome para seu projeto."
+            list="task-sugesstions"
+            id="task"
+          />
 
-          <datalist>
+          <datalist id="task-suggestions">
+            <option value="Projeto 1" />
+            <option value="Projeto 1" />
+            <option value="Projeto 1" />
             <option value="Projeto 1" />
           </datalist>
 

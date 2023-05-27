@@ -67,7 +67,7 @@ export const StartCountDownButton = styled.button`
   cursor: pointer;
   background-color: ${(props) => props.theme[`green-500`]};
   color: ${(props) => props.theme[`gray-100`]};
-  transition: background-color 0.2s;
+  transition: all 0.2s;
 
   &:not(:disabled):hover {
     background-color: ${(props) => props.theme[`green-700`]};

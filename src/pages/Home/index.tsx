@@ -21,25 +21,36 @@ const newCycleFormValidationSchema = z.object({
     .max(60, 'O ciclo precisa ser de no máximo 60 segundos'),
 })
 
+/* interface NewCycleFormData {
+  task: string
+  minutesAmount: number
+} */
+
+type NewCycleFormData = z.infer<typeof newCycleFormValidationSchema>
+
 export function Home() {
-  const { register, handleSubmit, watch } = useForm({
+  const { register, handleSubmit, watch, reset } = useForm<NewCycleFormData>({
     resolver: zodResolver(newCycleFormValidationSchema),
+    defaultValues: {
+      task: '',
+      minutesAmount: 0,
+    },
   })
 
   // const [task, setTask] = useState('')
 
-  const task = watch('task')
-  const isSubmitDisabled = !task
-
-  function handleCreateNewCycle(data: any) {
+  function handleCreateNewCycle(data: NewCycleFormData) {
     console.log(data)
+    reset()
   }
 
+  const task = watch('task')
+  const isSubmitDisabled = !task
   return (
     <HomeContainer>
       <form onSubmit={handleSubmit(handleCreateNewCycle)}>
         <FormContainer>
-          <label htmlFor="">Vou trabalhar em</label>
+          <label htmlFor="task">Vou trabalhar em</label>
           <TaskInput
             placeholder="Dê um nome para seu projeto."
             list="task-sugesstions"
@@ -54,14 +65,14 @@ export function Home() {
             <option value="Projeto 1" />
           </datalist>
 
-          <label htmlFor="">durante</label>
+          <label htmlFor="minutesAmount">durante</label>
           <MinutesAmountInput
             type="number"
-            id="minutesAmout"
+            id="minutesAmount"
             placeholder="00"
             step={5}
             max={60}
-            {...(register('minutesAmout'), { valueAsNumber: true })}
+            {...(register('minutesAmount'), { valueAsNumber: true })}
           />
 
           <span>minutos.</span>

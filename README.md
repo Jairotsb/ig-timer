@@ -18,7 +18,6 @@ My Personal linktree for show my social medias.
 ## :hammer_and_wrench: Features
 
 - Change Dark and light theme. :heavy_check_mark:
-- 
 
 ## ✨ Technologies
 
